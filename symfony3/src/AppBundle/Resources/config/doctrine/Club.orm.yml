@@ -1,0 +1,27 @@
+AppBundle\Entity\Club:
+    type: entity
+    table: clubs
+    uniqueConstraints:
+        identificador_UNIQUE:
+            columns:
+                - identificador
+        nombre_UNIQUE:
+            columns:
+                - nombre
+    id:
+        identificador:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

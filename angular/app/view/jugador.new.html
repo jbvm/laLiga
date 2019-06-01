@@ -1,0 +1,26 @@
+<div class="loader" *ngIf="loading == 'show'">
+	<img src="assets/images/ajax-gray.gif" />
+</div>
+<div class="col-md-12">
+	<hr />
+	<h1><span *ngIf="nombreClub">{{ nombreClub }}: </span>Alta de un nuevo jugador</h1>	
+	<hr />
+
+	<form #newVideoForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-4" *ngIf="status != 'success'">
+		<p>
+			Datos del jugador:
+		</p>
+		<p>
+			<label>Nombre:</label>
+			<input type="text" class="form-control" #nombre="ngForm" ngControl="nombre" [(ngModel)]="jugador.nombre" required />
+			<span *ngIf="!nombre.valid && nombre.touched">El nombre no es correcto</span>
+		</p>
+
+		<p>
+			<label>Dorsal:</label>
+			<input type="number" maxlength="2" max="99" min="1" name="dorsal" class="form-control" #dorsal="ngForm" ngControl="dorsal" [(ngModel)]="jugador.dorsal" required />
+			<span *ngIf="!dorsal.valid && dorsal.touched">El dorsal no es valido</span>
+		</p>
+		<input type="submit" value="Crear jugador" class="btn btn-success" />
+	</form>
+</div>

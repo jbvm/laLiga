@@ -1,0 +1,56 @@
+<?php
+
+namespace AppBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Club
+ */
+class Club
+{
+    /**
+     * @var integer
+     */
+    private $identificador;
+
+    /**
+     * @var string
+     */
+    private $nombre;
+
+
+    /**
+     * Get identificador
+     *
+     * @return integer
+     */
+    public function getIdentificador()
+    {
+        return $this->identificador;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Club
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+}
+

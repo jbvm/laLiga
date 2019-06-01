@@ -1,0 +1,36 @@
+<div class="col-md-12">
+	<hr />
+	<h1>{{titulo}}</h1>	
+	<hr />
+
+	<div class="all-clubs">
+		<div class="loader" *ngIf="loading == 'show'">
+			<img src="assets/images/ajax-gray.gif" />
+		</div>
+		<ul id="clubs-list" *ngIf="clubs && loading == 'hide'">
+			<li *ngFor="let club of clubs" class="club-item col-md-12 pull-left">
+				<div class="data">
+					<h4><a [routerLink]="['/club/listarJugadores', club.identificador]">{{club.nombre}}</a></h4>
+				</div>	
+				<div class="clearfix"></div>			
+			</li>
+		</ul>
+	</div>
+	<div class="clearfix"></div>
+
+	<ul class="pagination">
+		<li>
+			<a [routerLink]="['/index', pagePrev]" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+			</a>
+		</li>
+		<li *ngFor="let page of pages">
+			<a [routerLink]="['/index', page + 1]" aria-label="Next">{{page + 1}}</a>
+		</li>
+		<li>
+			<a [routerLink]="['/index', pageNext]" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+			</a>
+		</li>
+	</ul>
+</div>

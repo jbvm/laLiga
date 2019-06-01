@@ -1,0 +1,45 @@
+AppBundle\Entity\Jugador:
+    type: entity
+    table: jugadores
+    indexes:
+        fk_club_idx:
+            columns:
+                - id_club
+    uniqueConstraints:
+        identificador_UNIQUE:
+            columns:
+                - identificador
+    id:
+        identificador:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        dorsal:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+    manyToOne:
+        idClub:
+            targetEntity: Club
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_club:
+                    referencedColumnName: identificador
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,18 @@
+app_index:
+    path: /club/list
+    defaults: {_controller: "AppBundle:Club:index"}
+    methods: GET
+
+app_nomClub:
+    path: /club/nombreClub/{idEquipo}
+    defaults: {_controller: "AppBundle:Club:nombreClub"}
+    methods: GET
+
+app_add_jugador:
+    path: /club/crear-jugador/{idEquipo}
+    defaults: {_controller: "AppBundle:Club:addJugador"}
+
+app_jugadores:
+    path: /club/{idEquipo}
+    defaults: {_controller: "AppBundle:Club:jugadores"}
+    methods: GET

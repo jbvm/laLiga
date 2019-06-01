@@ -1,0 +1,35 @@
+{% block content %}
+    <div class="col-lg-12">
+        <h2>Todos los equipos</h2>
+        <hr />
+
+        <hr />
+        {% for message in app.session.flashbag().get('status') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Código de Equipo</th>
+                <th>Nombre</th>
+            </tr>
+            {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.identificador }}</td>
+                    <td>{{ entry.nombre }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="clearfix"></div>
+    <ul class="pagination">
+        {% if (page>1)%}
+            <li><a href="">&laquo;</a></li>
+        {% endif %}
+        {% for i in 1..pagesCount %}
+            <li><a href="">{{ i }}</a></li>
+        {% endfor %}
+        {% if (page<pagesCount)%}
+            <li><a href="">&raquo;</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}

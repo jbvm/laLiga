@@ -1,0 +1,127 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Jugador
+ */
+class Jugador
+{
+    /**
+     * @var string
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     */
+    private $dorsal;
+
+    /**
+     * @var integer
+     */
+    private $idJudador;
+
+    /**
+     * @var \AppBundle\Entity\Club
+     */
+    private $identificador;
+
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Jugador
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set dorsal
+     *
+     * @param integer $dorsal
+     *
+     * @return Jugador
+     */
+    public function setDorsal($dorsal)
+    {
+        $this->dorsal = $dorsal;
+
+        return $this;
+    }
+
+    /**
+     * Get dorsal
+     *
+     * @return integer
+     */
+    public function getDorsal()
+    {
+        return $this->dorsal;
+    }
+
+    /**
+     * Set idJudador
+     *
+     * @param integer $idJudador
+     *
+     * @return Jugador
+     */
+    public function setIdJudador($idJudador)
+    {
+        $this->idJudador = $idJudador;
+
+        return $this;
+    }
+
+    /**
+     * Get idJudador
+     *
+     * @return integer
+     */
+    public function getIdJudador()
+    {
+        return $this->idJudador;
+    }
+
+    /**
+     * Set identificador
+     *
+     * @param \AppBundle\Entity\Club $identificador
+     *
+     * @return Jugador
+     */
+    public function setIdentificador(\AppBundle\Entity\Club $identificador = null)
+    {
+        $this->identificador = $identificador;
+
+        return $this;
+    }
+
+    /**
+     * Get identificador
+     *
+     * @return \AppBundle\Entity\Club
+     */
+    public function getIdentificador()
+    {
+        return $this->identificador;
+    }
+}
+

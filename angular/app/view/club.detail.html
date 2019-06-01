@@ -1,0 +1,54 @@
+<div class="loader" *ngIf="loading == 'show'">
+	<img src="assets/images/ajax-gray.gif" />
+</div>
+<div class="col-md-12">
+	<hr />
+	<div *ngIf="statusNewJug > 0">FDDGFD</div>
+	<div class="data" *ngIf="jugadorCreado != null">
+		<div class="new-jugador alert alert-success" *ngIf="jugadorCreado > 0">
+			El jugador se ha creado correctamente
+		</div>
+
+		<div class="new-jugador alert alert-danger" *ngIf="jugadorCreado <= 0">
+			Error: El jugador no ha sido posible crearlo. Por favor, intentelo más tarde.
+		</div>	
+	</div>
+
+	<div class="col-md-10">
+		<h1>Listado de jugadores del club <span *ngIf="nombreClub">{{ nombreClub }}</span></h1>	
+	</div>
+	<div class="col-md-2">
+		<a [routerLink]="['/club/crearJugador', idClub, page]" >
+			<input type="button" value="Fichar jugador" class="btn btn-success" />
+		</a>
+	</div>
+	<hr />
+
+	<div class="jugadores-list" *ngIf="jugadoresClub">
+		<div *ngFor="let jugadorClub of jugadoresClub" class="jugador-item col-md-12 pull-left">
+
+			<div class="panel panel-default jugador-data jugador-panel-{{jugadorClub.identificador}}">
+				<div class="panel-body">
+					<h4><a>{{jugadorClub.nombre}}&nbsp;&nbsp;{{jugadorClub.dorsal}}</a></h4>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<ul class="pagination" *ngIf="idClub">
+		<li>
+			<a [routerLink]="['/club/listarJugadores', idClub, pagePrev]" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+			</a>
+		</li>
+		<li *ngFor="let pag of pages">
+			<a [routerLink]="['/club/listarJugadores', idClub, pag + 1]" aria-label="Next">{{pag + 1}}</a>
+		</li>
+		<li>
+			<a [routerLink]="['/club/listarJugadores', idClub, pageNext]" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+			</a>
+		</li>
+	</ul>
+</div>
